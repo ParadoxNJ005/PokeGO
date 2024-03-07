@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="teal">#ff008577</color>
+    <color name="orange">#FF5722</color>
+    <color name="teal_700">#ff018786</color>
+    <color name="red"> #E31837</color>
+    <color name="golden">#FFD700</color>
+    <color name="c1">#EFA52D</color>
+    <color name="green">#006491</color>
+    <color name="blue">#3D77BB</color>
+    <color name="grey">#B2BEB5</color>
+    <color name="parrot">#29AB87</color>
+
 </resources>
+
