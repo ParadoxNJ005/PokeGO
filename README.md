@@ -1,0 +1,1 @@
+This is a Pokedex App that is based on Augmented Reality . It allows you to select a pokemon from your pokedex and place it in real time . You can also catch the pokemon in your pokeball . Fork this repo and enjoy the game
