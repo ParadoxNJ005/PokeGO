@@ -1,30 +1,29 @@
-package com.example.ar
+package com.example.ar.Adapter
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.example.ar.Activity.MainActivity
+import com.example.ar.DataClass.InfoClass
+import com.example.ar.R
 
 class SelectAdapter(
     val context: Context,
     val list: MutableList<InfoClass>
 ): RecyclerView.Adapter<SelectAdapter.ViewHolder>()  {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SelectAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.itemview,parent,false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: SelectAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         holder.name.text = list[position].name
 
@@ -38,6 +37,9 @@ class SelectAdapter(
             val intent = Intent(context , MainActivity::class.java)
             intent.putExtra("dis",list[position].dis)
             intent.putExtra("name",list[position].name)
+            intent.putExtra("type1",list[position].type1)
+            intent.putExtra("type2",list[position].type2)
+            intent.putExtra("image",list[position].image)
             context.startActivity(intent)
         }
     }

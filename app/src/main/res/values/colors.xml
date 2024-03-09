@@ -12,6 +12,8 @@
     <color name="blue">#3D77BB</color>
     <color name="grey">#B2BEB5</color>
     <color name="parrot">#29AB87</color>
+    <color name="transparent">#00000000</color>
+    <color name="shimer">#cc6600</color>
 
 </resources>
 

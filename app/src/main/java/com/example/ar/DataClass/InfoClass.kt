@@ -1,4 +1,4 @@
-package com.example.ar
+package com.example.ar.DataClass
 
 data class InfoClass(
     val name:String,

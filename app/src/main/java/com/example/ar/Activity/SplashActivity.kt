@@ -1,4 +1,4 @@
-package com.example.ar
+package com.example.ar.Activity
 
 import android.animation.ObjectAnimator
 import android.content.Intent

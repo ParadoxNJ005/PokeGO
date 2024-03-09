@@ -1,4 +1,4 @@
-package com.example.ar
+package com.example.ar.Activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +17,7 @@ import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.view.animation.TranslateAnimation
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Locale
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener{
@@ -37,9 +38,11 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener{
 
         binding.ball.isVisible = false
 
-
         val dis = intent.getStringExtra("dis").toString()
         val name = intent.getStringExtra("name").toString()
+        val image = intent.getStringExtra("image").toString()
+        val type1 = intent.getStringExtra("type1").toString()
+        val type2 = intent.getStringExtra("type2").toString()
 
         tts = TextToSpeech(this, this)
 
@@ -53,7 +56,6 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener{
             tts?.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null, "")
 
             place()
-
         }
 
 
@@ -70,16 +72,32 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener{
                 binding.click.isGone=it!=null
             }
         }
+
         binding.sceneview.addChild(modelNode)
 
         binding.ball.setOnClickListener {
+
             val rnds = (0..1).random()
+
             if(rnds == 0){
                 ballFall(rnds)
                 Toast.makeText(this, "Oops! It looks like this Pokemon broke free.", Toast.LENGTH_SHORT).show()
             }else{
+
                 ballFall(rnds)
-                Toast.makeText(this, "Boom ! You've caught a new Pokemon! Keep on training and collecting more!", Toast.LENGTH_SHORT).show()
+                val requestData = hashMapOf(
+                    "name" to name ,
+                    "image" to image,
+                    "type1" to type1,
+                    "type2" to type2,
+                    "dis" to dis
+                )
+                FirebaseFirestore.getInstance().collection("bag").add(requestData).addOnSuccessListener{
+                    Toast.makeText(this, "Boom ! You've caught a new Pokemon! Keep on training and collecting more!", Toast.LENGTH_SHORT).show()
+                }.addOnFailureListener{
+                    Toast.makeText(this, "Check your Internet Connection", Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
 
@@ -176,6 +194,8 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener{
 
     private val displayHeight: Int
         get() = this.resources.displayMetrics.heightPixels
+
+
 }
 
 

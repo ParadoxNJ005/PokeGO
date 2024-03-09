@@ -50,9 +50,12 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("io.github.sceneview:arsceneview:0.10.0")
-
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
     implementation("com.airbnb.android:lottie:6.1.0")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.github.sparrow007:carouselrecyclerview:1.2.6")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0-alpha01")
+    implementation("com.squareup.picasso:picasso:2.71828")
 }
